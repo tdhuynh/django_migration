@@ -8,8 +8,8 @@ import csv
 
 def add_ufc_data(apps, schema_editor):
     Fighter = apps.get_model("my_sports_db", "Fighter")
-    with open('stats.csv') as file:
-        contents = csv.reader(file)
+    with open('stats.csv') as open_file:
+        contents = csv.reader(open_file)
         for row in contents:
             Fighter.objects.create(first_name=row[0],last_name=row[1],fights=row[2],strikes=row[3],
             strike_accuracy=row[4],takedowns=row[5],takedown_accuracy=row[6],knockdowns=row[7],passes=row[8],
